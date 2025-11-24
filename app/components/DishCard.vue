@@ -10,7 +10,7 @@ import Button from './Button.vue';
                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg></button>
          <img class="rounded-xl"
-            src="https://images.unsplash.com/photo-1673646961450-8432d46e3a40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYW5jYWtlcyUyMGJsaW5pfGVufDF8fHx8MTc2MzkyNTEzN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"></img>
+            src="https://images.unsplash.com/photo-1673646961450-8432d46e3a40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYW5jYWtlcyUyMGJsaW5pfGVufDF8fHx8MTc2MzkyNTEzN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"/>
          <span class="z-10 absolute bottom-4 left-2 bg-white rounded-2xl px-2 py-1">Теремок</span>
       </div>
       <div class="flex flex-col gap-2 my-4 mx-4">
