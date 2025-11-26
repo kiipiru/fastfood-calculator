@@ -1,4 +1,6 @@
-<script install lang="ts"></script>
+<script install lang="ts">
+
+</script>
 
 <template>
   <div class="bg-gray-100 w-dvw h-full">

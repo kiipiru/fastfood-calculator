@@ -10,4 +10,5 @@ export interface Dish {
     proteins: number,
     fats: number,
     carbohydrates: number,
+    image: string
 }
