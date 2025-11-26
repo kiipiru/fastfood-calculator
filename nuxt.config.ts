@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   css: ['../assets/css/tailwind.css'],
   alias: {
     '@types': './types',
-    '@icons': './assets/icons',
+    '@assets': './assets',
     '@components': './app/components'
   },
   devtools: { enabled: true }
