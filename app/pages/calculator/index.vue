@@ -27,7 +27,9 @@ const currentNutrition = computed(() => {
 </script>
 
 <template>
-  <main v-if="calculator.dishes.size === 0 && calculator.isReady" class="max-w-xl mx-auto my-40">
+  <main  class="mx-4 sm:mx-8 md:mx-20 my-8">
+    <template v-if="!calculator.isReady"></template>
+    <section v-else-if="calculator.dishes.size === 0" class="max-w-xl mx-auto my-40 flex flex-col gap-4" >
     <div class="flex flex-col items-center gap-4">
       <img class="w-[100px]" :src="calculatorIcon" />
       <h2>Пока пусто 😞</h2>
@@ -39,8 +41,8 @@ const currentNutrition = computed(() => {
         @button-pressed="navigateTo('/menu')"
       ></Button>
     </div>
-  </main>
-  <main v-else class="mx-4 sm:mx-8 md:mx-20 my-8">
+    </section>
+  <template v-else>
     <div class="flex flex-col gap-12">
       <div class="flex justify-between">
         <h2 class="text-2xl font-bold">Калькулятор</h2>
@@ -78,6 +80,7 @@ const currentNutrition = computed(() => {
           @gender-chosen="(g) => nutritionNorm.changeNutritionNorm(g)"
         />
       </div>
-    </div>
+      </div>
+  </template>
   </main>
 </template>
