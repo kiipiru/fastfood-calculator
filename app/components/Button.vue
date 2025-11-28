@@ -13,11 +13,15 @@ const computedClass = computed(() => {
   };
   return colorMapper[props.color];
 });
-const emit = defineEmits(['button-pressed'])
+const emit = defineEmits(["button-pressed"]);
 </script>
 
 <template>
-  <button :class="computedClass" class="rounded-2xl items-centered px-2 py-2 transition duration-200" @click="emit('button-pressed')">
+  <button
+    :class="computedClass"
+    class="rounded-2xl items-centered px-2 py-2 transition duration-200"
+    @click="emit('button-pressed')"
+  >
     <img v-if="icon" />{{ text }}
   </button>
 </template>

@@ -36,11 +36,10 @@ const emit = defineEmits(["dish-selected", "dish-favorited"]);
         "
       >
         <img
-          class="group-hover:invert" 
+          class="group-hover:invert"
           :class="favoriteClasses.img"
           src="/heart.svg"
           alt="Иконка сердца"
-
         />
       </button>
       <img

@@ -47,7 +47,9 @@ const nutritionNorm = useNutritionNormStore().nutritionNorm;
       <span class="text-sm text-gray-600">Вес: {{ dish.weight }}</span>
     </div>
     <span class="mx-6 my-4">Пищевая ценность (КБЖУ)</span>
-    <div class="grid grid-cols-2 grid-rows-2 md:flex md:justify-between pb-4 px-8">
+    <div
+      class="grid grid-cols-2 grid-rows-2 md:flex md:justify-between pb-4 px-8"
+    >
       <NutritionCircle
         title="Калории"
         :value="dish?.nutrition.calories"
@@ -78,8 +80,18 @@ const nutritionNorm = useNutritionNormStore().nutritionNorm;
       />
     </div>
     <div class="flex flex-col md:flex-row gap-4 max-w-2xl mx-6">
-      <Button color="orange" class="w-full md:w-1/2" text="Добавить в калькулятор" @button-pressed="emit('dish-added', dish.id)"></Button>
-      <Button color="red" class="w-full md:w-1/2 bg-red-500" text="В избранное" @button-pressed="emit('dish-favorited', dish.id)"></Button>
+      <Button
+        color="orange"
+        class="w-full md:w-1/2"
+        text="Добавить в калькулятор"
+        @button-pressed="emit('dish-added', dish.id)"
+      ></Button>
+      <Button
+        color="red"
+        class="w-full md:w-1/2 bg-red-500"
+        text="В избранное"
+        @button-pressed="emit('dish-favorited', dish.id)"
+      ></Button>
     </div>
   </div>
 </template>

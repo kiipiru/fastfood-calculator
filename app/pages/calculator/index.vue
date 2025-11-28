@@ -27,7 +27,7 @@ const currentNutrition = computed(() => {
 </script>
 
 <template>
-  <main v-if="calculator.dishes.size === 0" class="max-w-xl mx-auto my-40">
+  <main v-if="calculator.dishes.size === 0 && calculator.isReady" class="max-w-xl mx-auto my-40">
     <div class="flex flex-col items-center gap-4">
       <img class="w-[100px]" :src="calculatorIcon" />
       <h2>Пока пусто 😞</h2>
