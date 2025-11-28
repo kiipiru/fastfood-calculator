@@ -15,9 +15,9 @@ const emit = defineEmits([
 
 <template>
   <div
-    class="flex justify-between px-8 py-8 bg-white w-full h-fit rounded-2xl shadow-md gap-4 overflow-hidden"
+    class="flex flex-col sm:flex-row justify-between px-8 py-8 bg-white w-full h-fit rounded-2xl shadow-md gap-4 overflow-hidden"
   >
-    <img :src="dish.image" class="max-h-[120px] mr-4" />
+    <img :src="dish.image" class="max-h-[120px] mr-4 object-contain" />
     <div class="flex flex-col w-full">
       <span class="pb-2 text-lg">{{ dish.title }}</span>
       <span class="pb-2 text-gray-500">{{ dish.restaurant }}</span>
@@ -26,7 +26,7 @@ const emit = defineEmits([
         {{ totalCalories }} ккал</span
       >
     </div>
-    <div class="flex flex-col justify-between items-end">
+    <div class="flex flex-row sm:flex-col justify-between items-end">
       <button @click="emit('dish-removed-completely')">
         <img :src="trashIcon" class="size-8" />
       </button>
