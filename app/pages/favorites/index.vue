@@ -3,5 +3,5 @@ const props = defineProps<{ searchQ: string }>();
 </script>
 
 <template>
- <DishCatalogue :search-q="searchQ" :type="'Каталог блюд'" />
+ <DishCatalogue :search-q="searchQ" :type="'Избранное'" />
 </template>

@@ -15,5 +15,5 @@
       "path": "./.nuxt/tsconfig.node.json"
     }
   ],
-  "compilerOptions": {"resolveJsonModule": true}
+  "compilerOptions": {"resolveJsonModule": true, "paths": {"@types/*": ["./types/*"]}}
 }

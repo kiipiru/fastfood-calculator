@@ -2,24 +2,19 @@
 import type { Dish } from "~~/types/types";
 import Button from "./Button.vue";
 const props = defineProps<{ dish?: Dish }>();
-const emit = defineEmits(["card-closed"]);
+const emit = defineEmits(["card-closed", "dish-added", "dish-favorited"]);
 const nutritionNorm = useNutritionNormStore().nutritionNorm;
-onMounted(() => {
-  if (!props.dish) {
-    useRouter().push("/menu");
-  }
-});
 </script>
 
 <template>
   <div
     v-if="dish"
-    class="flex flex-col rounded-xl bg-white w-4/5 max-w-xl mx-auto mt-4 pb-4 z-100"
+    class="flex flex-col rounded-2xl bg-white w-4/5 max-w-xl mx-auto my-2 pb-4 z-100"
     @click.stop
   >
     <div class="relative max-w-100 flex flex-col">
       <button
-        class="z-10 absolute right-2 top-4 bg-white rounded-full p-1"
+        class="z-10 absolute right-4 top-4 bg-white rounded-full p-1"
         @click="(e: MouseEvent) =>emit('card-closed', e)"
       >
         <svg
@@ -37,21 +32,21 @@ onMounted(() => {
         </svg>
       </button>
       <img
-        class="rounded-xl w-3/5 object-contain self-center"
+        class="rounded-xl w-3/5 object-contain self-center pt-4"
         :src="dish?.image"
         :alt="`Изображение блюда ${dish?.title}`"
       />
       <span
-        class="z-10 absolute bottom-4 left-2 rounded-2xl px-2 py-1 bg-gray-50 border border-black"
+        class="z-10 absolute bottom-4 left-4 rounded-2xl px-4 py-1 bg-gray-50 border border-black"
         >{{ dish.restaurant }}</span
       >
     </div>
-    <div class="flex flex-col gap-2 my-4 mx-4">
+    <div class="flex flex-col gap-2 my-4 mx-6">
       <h2 class="text-md">{{ dish.title }}</h2>
       <p class="text-md">{{ dish.description }}</p>
       <span class="text-sm text-gray-600">Вес: {{ dish.weight }}</span>
     </div>
-    <span class="mx-4 my-4">Пищевая ценность (КБЖУ)</span>
+    <span class="mx-6 my-4">Пищевая ценность (КБЖУ)</span>
     <div class="grid grid-cols-2 grid-rows-2 md:flex md:justify-between pb-4 px-8">
       <NutritionCircle
         title="Калории"
@@ -82,10 +77,9 @@ onMounted(() => {
         type="г"
       />
     </div>
-    <div class="flex flex-col md:flex-row gap-4 max-w-2xl mx-4">
-      <Button color="orange" class="w-full md:w-1/2" text="Добавить в корзину"></Button>
-      <Button color="gray" class="w-full md:w-1/4" text="В избранное"></Button>
-      <Button color="blue" class="w-full md:w-1/4" text="Сравнить"></Button>
+    <div class="flex flex-col md:flex-row gap-4 max-w-2xl mx-6">
+      <Button color="orange" class="w-full md:w-1/2" text="Добавить в калькулятор" @button-pressed="emit('dish-added', dish.id)"></Button>
+      <Button color="red" class="w-full md:w-1/2 bg-red-500" text="В избранное" @button-pressed="emit('dish-favorited', dish.id)"></Button>
     </div>
   </div>
 </template>
