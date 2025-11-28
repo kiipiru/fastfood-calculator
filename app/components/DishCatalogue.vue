@@ -72,9 +72,9 @@ watch(isModalOpen, () => {
 </script>
 
 <template>
-  <main class="px-10 flex flex-col gap-4 pt-8 pb-12">
+  <main class="px-10 flex flex-col gap-4 pt-8 pb-24">
     <h2 v-once class="text-xl">{{ type }}</h2>
-    <div class="flex gap-4 overflow-auto">
+    <div class="flex flex-col sm:flex-row gap-4 overflow-auto">
       <FilterButton
         :is-active="selectedRestaurant === 'All'"
         :icon="restaurantIcon"

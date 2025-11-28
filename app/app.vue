@@ -15,5 +15,6 @@ onBeforeMount(() => {
     <PageHeader @input-changed="(v) => (searchQuery = v)" />
     <NuxtRouteAnnouncer />
     <NuxtPage :search-q="searchQuery" />
+    <PageFooter/>
   </div>
 </template>
