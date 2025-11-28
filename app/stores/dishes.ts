@@ -10,10 +10,6 @@ export const useDishesStore = defineStore('dishes', {
       }
     },
     actions: {
-      async fetchDishes() {
-        const data = await import("../../assets/data/dishes");
-        this.dishes = data.dishes
-      },
       selectDish(id: string) {
         this.selectedDish = id
       },

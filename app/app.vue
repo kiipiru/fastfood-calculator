@@ -3,8 +3,18 @@ useHead({
   meta: [{ name: "robots", content: "noindex, nofollow" }],
 });
 const searchQuery = ref<string>("");
+
+const {data: dishes} = await 
+useAsyncData('dishes', async () => {
+  const data = await import("~~/assets/data/dishes")
+  return data.dishes
+})
+
+if (dishes.value) {
+  useDishesStore().dishes = dishes.value;
+}
+
 onBeforeMount(() => {
-  useDishesStore().fetchDishes();
   useCalculatorStore().initFromStorage();
   useFavoritesStore().initFromStorage();
 });
