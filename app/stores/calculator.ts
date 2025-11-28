@@ -5,9 +5,9 @@ export const useCalculatorStore = defineStore("calculator", {
   actions: {
     initFromStorage() {
       const raw = localStorage.getItem("calculator_dishes");
-      if (!raw) return;
+      if (raw) {
       const obj = JSON.parse(raw);
-      this.dishes = new Map<string, number>(Object.entries(obj));
+      this.dishes = new Map<string, number>(Object.entries(obj));}
       this.isReady = true
     },
     selectDish(id: string) {
