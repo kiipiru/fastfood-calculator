@@ -48,7 +48,6 @@ function handleModalClosed() {
   isModalOpen.value = false;
 }
 onMounted(async () => {
-  await dishesStore.fetchDishes();
   const dishId = route.query.dish;
   if (dishId && typeof dishId === "string") {
     const dish = dishesStore.getDishById(dishId);
