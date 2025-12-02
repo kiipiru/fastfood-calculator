@@ -26,9 +26,9 @@ const showInput = computed(() => {
     <p class="text-xs sm:text-sm xl:text-lg text-gray-500 self-center" v-else>Помните: сбалансированное питание невозможно при постоянном употреблении только фастфуда.</p>
     <nav class="hidden md:flex gap-2">
       <NavigationButton type="Избранное" :amount="favoritesStore.dishes.size"
-        @navigation-button-clicked="navigateTo('/favorites')" icon="/heart.svg" />
+        @navigation-button-clicked="navigateTo('/favorites')" icon="/heart.svg" aria-label="Избранное" />
       <NavigationButton type="Калькулятор" :amount="calculatorStore.dishes.size"
-        @navigation-button-clicked="navigateTo('/calculator')" icon="/cart.svg" />
+        @navigation-button-clicked="navigateTo('/calculator')" icon="/cart.svg" aria-label="Калькулятор"/>
     </nav>
   </header>
 </template>

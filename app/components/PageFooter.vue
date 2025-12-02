@@ -13,6 +13,7 @@ const calculatorStore = useCalculatorStore();
           :amount="favoritesStore.dishes.size"
           @navigation-button-clicked="navigateTo('/favorites')"
           icon="/burger.svg"
+          aria-label="Главная"
         />
         <span>Главная</span>
       </div>
@@ -22,6 +23,7 @@ const calculatorStore = useCalculatorStore();
           :amount="favoritesStore.dishes.size"
           @navigation-button-clicked="navigateTo('/favorites')"
           icon="/heart.svg"
+          aria-label="Избранное"
         />
         <span>Избранное</span>
       </div>
@@ -31,6 +33,7 @@ const calculatorStore = useCalculatorStore();
           :amount="calculatorStore.dishes.size"
           @navigation-button-clicked="navigateTo('/calculator')"
           icon="/cart.svg"
+          aria-label="Калькулятор"
         />
         <span>Калькулятор</span>
       </div>

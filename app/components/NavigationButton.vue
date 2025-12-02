@@ -27,6 +27,6 @@ const spanBgClass = computed(() => {
       :class="spanBgClass"
       >{{ amount }}</span
     >
-    <img class="size-full" :src="icon" />
+    <img class="size-full" :src="icon" aria-hidden="true"/>
   </button>
 </template>

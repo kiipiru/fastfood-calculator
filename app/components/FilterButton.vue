@@ -6,6 +6,12 @@ const props = defineProps<{
   isActive: boolean;
 }>();
 const emit = defineEmits(["filter-selected"]);
+const imageAlt = computed(() => {
+  if (props.title === 'Все рестораны') {
+    return 'Фильтр по всем ресторанам';
+  }
+  return `Фильтр по ресторану ${props.title}`;
+});
 </script>
 
 <template>
@@ -17,7 +23,7 @@ const emit = defineEmits(["filter-selected"]);
     <div
       class="size-8 rounded-full bg-white flex items-center justify-center p-1.5"
     >
-      <img class="size-6 object-contain" :src="icon" />
+      <img :alt="imageAlt" class="size-6 object-contain" :src="icon" />
     </div>
     <span>{{ title }}</span>
   </button>
