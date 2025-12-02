@@ -6,7 +6,10 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'ru'
       },
-      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]
+      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+      meta: [{name: 'google-site-verification', content: 'YJ63si5zjca0GjVd6a9X47MXn0LQtAlzjM9A48C5CF4'},
+        {name: 'yandex-verification', content: '9a02794f8e96ac27'}
+      ]
     }
   },
   compatibilityDate: '2025-07-15',
