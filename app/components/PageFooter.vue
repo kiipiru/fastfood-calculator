@@ -8,6 +8,14 @@ const calculatorStore = useCalculatorStore();
     <nav class="flex justify-around bg-white w-full pt-1.5">
       <div class="flex flex-col items-center">
         <NavigationButton
+          :amount="favoritesStore.dishes.size"
+          @navigation-button-clicked="navigateTo('/favorites')"
+          icon="/burger.svg"
+        />
+        <span>Главная</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <NavigationButton
           type="Избранное"
           :amount="favoritesStore.dishes.size"
           @navigation-button-clicked="navigateTo('/favorites')"

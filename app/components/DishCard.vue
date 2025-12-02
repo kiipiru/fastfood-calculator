@@ -4,6 +4,32 @@ import Button from "./Button.vue";
 const props = defineProps<{ dish?: Dish }>();
 const emit = defineEmits(["card-closed", "dish-added", "dish-favorited"]);
 const nutritionNorm = useNutritionNormStore().nutritionNorm;
+const nutritionItems = [
+  {
+    title: "Калории",
+    key: "calories",
+    color: "orange",
+    type: "ккал",
+  },
+  {
+    title: "Белки",
+    key: "proteins",
+    color: "blue",
+    type: "г",
+  },
+  {
+    title: "Жиры",
+    key: "fats",
+    color: "yellow",
+    type: "г",
+  },
+  {
+    title: "Углеводы",
+    key: "carbohydrates",
+    color: "green",
+    type: "г",
+  },
+] as const;
 </script>
 
 <template>
@@ -51,32 +77,13 @@ const nutritionNorm = useNutritionNormStore().nutritionNorm;
       class="grid grid-cols-2 grid-rows-2 md:flex md:justify-between pb-4 px-8"
     >
       <NutritionCircle
-        title="Калории"
-        :value="dish?.nutrition.calories"
-        :max="nutritionNorm.calories"
-        color="orange"
-        type="ккал"
-      />
-      <NutritionCircle
-        title="Белки"
-        :value="dish?.nutrition.proteins"
-        :max="nutritionNorm.proteins"
-        color="blue"
-        type="г"
-      />
-      <NutritionCircle
-        title="Жиры"
-        :value="dish?.nutrition.fats"
-        :max="nutritionNorm.fats"
-        color="yellow"
-        type="г"
-      />
-      <NutritionCircle
-        title="Жиры"
-        :value="dish?.nutrition.carbohydrates"
-        :max="nutritionNorm.carbohydrates"
-        color="green"
-        type="г"
+        v-for="item in nutritionItems"
+        :key="item.key"
+        :title="item.title"
+        :value="dish?.nutrition[item.key]"
+        :max="nutritionNorm[item.key]"
+        :color="item.color"
+        :type="item.type"
       />
     </div>
     <div class="flex flex-col md:flex-row gap-4 max-w-2xl mx-6">
@@ -84,13 +91,13 @@ const nutritionNorm = useNutritionNormStore().nutritionNorm;
         color="orange"
         class="w-full md:w-1/2"
         text="Добавить в калькулятор"
-        @button-pressed="emit('dish-added', dish.id)"
+        @click="emit('dish-added', dish.id)"
       ></Button>
       <Button
         color="red"
-        class="w-full md:w-1/2 bg-red-500"
+        class="w-full md:w-1/2"
         text="В избранное"
-        @button-pressed="emit('dish-favorited', dish.id)"
+        @click="emit('dish-favorited', dish.id)"
       ></Button>
     </div>
   </div>

@@ -3,6 +3,7 @@ import type { Restaurant } from "~~/types/types";
 import restaurantIcon from "~~/assets/icons/restaurant.svg";
 import vkusnoIcon from "~~/assets/icons/vkusno-i-tochka.png";
 import rosticIcon from "~~/assets/icons/rostics.png";
+
 const props = defineProps<{
   searchQ: string;
   type: "Каталог блюд" | "Избранное";
@@ -14,6 +15,23 @@ const isModalOpen = ref<boolean>(false);
 const dishesStore = useDishesStore();
 const calculatorStore = useCalculatorStore();
 const favoriteStore = useFavoritesStore();
+const restaurantFilters = [
+  {
+    value: "All",
+    title: "Все рестораны",
+    icon: restaurantIcon,
+  },
+  {
+    value: "Вкусно и точка",
+    title: "Вкусно и точка",
+    icon: vkusnoIcon,
+  },
+  {
+    value: "Rostic's",
+    title: "Rostic's",
+    icon: rosticIcon,
+  },
+] as const;
 const selectedDish = computed(() => {
   const dishId = dishesStore.selectedDish;
   if (dishId) {
@@ -21,20 +39,20 @@ const selectedDish = computed(() => {
   }
 });
 const visibleDishes = computed(() => {
-  return dishesStore.dishes
-    .filter(
-      (dish) => props.type !== "Избранное" || favoriteStore.dishes.has(dish.id)
-    )
-    .filter(
-      (dish) =>
-        selectedRestaurant.value === "All" ||
-        dish.restaurant === selectedRestaurant.value
-    )
-    .filter(
-      (dish) =>
-        !props.searchQ ||
-        dish.title.toLowerCase().includes(props.searchQ.toLowerCase())
-    );
+  return dishesStore.dishes.filter((dish) => {
+    const matchesFavorites =
+      props.type !== "Избранное" || favoriteStore.dishes.has(dish.id);
+
+    const matchesRestaurant =
+      selectedRestaurant.value === "All" ||
+      dish.restaurant === selectedRestaurant.value;
+
+    const matchesSearch =
+      !props.searchQ ||
+      dish.title.toLowerCase().includes(props.searchQ.toLowerCase());
+
+    return matchesFavorites && matchesRestaurant && matchesSearch;
+  });
 });
 function handleDishSelect(id: string) {
   dishesStore.selectDish(id);
@@ -75,22 +93,12 @@ watch(isModalOpen, () => {
     <h2 v-once class="text-xl">{{ type }}</h2>
     <div class="flex flex-col sm:flex-row gap-4 overflow-auto">
       <FilterButton
-        :is-active="selectedRestaurant === 'All'"
-        :icon="restaurantIcon"
-        title="Все рестораны"
-        v-on:filter-selected="selectedRestaurant = 'All'"
-      />
-      <FilterButton
-        :icon="vkusnoIcon"
-        :is-active="selectedRestaurant === 'Вкусно и точка'"
-        title="Вкусно и точка"
-        v-on:filter-selected="selectedRestaurant = 'Вкусно и точка'"
-      />
-      <FilterButton
-        :icon="rosticIcon"
-        :is-active="selectedRestaurant === `Rostic's`"
-        title="Rostic's"
-        v-on:filter-selected="selectedRestaurant = `Rostic's`"
+        v-for="item in restaurantFilters"
+        :key="item.value"
+        :icon="item.icon"
+        :title="item.title"
+        :is-active="selectedRestaurant === item.title"
+        @filter-selected="selectedRestaurant = item.value"
       />
     </div>
     <div
@@ -99,11 +107,11 @@ watch(isModalOpen, () => {
       <template v-if="visibleDishes.length > 0">
         <DishPreview
           v-for="dish in visibleDishes"
+          :key="dish.id"
           :dish="dish"
           @dish-selected="handleDishSelect(dish.id)"
           @dish-favorited="favoriteStore.toggleFavorite(dish.id)"
           :is-favorited="favoriteStore.dishes.has(dish.id)"
-          :key="dish.id"
         ></DishPreview>
       </template>
       <div
@@ -124,7 +132,7 @@ watch(isModalOpen, () => {
   <Teleport to="body">
     <DishCardModal
       v-if="isModalOpen"
-      @modal-closed="handleModalClosed()"
+      @modal-closed="handleModalClosed"
       :dish="selectedDish?.dish"
       @dish-added="
         (id) => {

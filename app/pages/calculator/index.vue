@@ -1,6 +1,38 @@
 <script setup lang="ts">
 import calculatorIcon from "~~/assets/icons/calculator.svg";
 import type { Dish, Nutrition } from "~~/types/types";
+
+definePageMeta({
+  title: 'Калькулятор КБЖУ — подсчёт калорий блюд фастфуда',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Калькулятор КБЖУ для блюд фастфуда «Вкусно и точка» и Rostic’s. Добавляйте блюда, меняйте количество, считайте суммарные калории, белки, жиры и углеводы и сравнивайте с дневной нормой.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'калькулятор КБЖУ, подсчёт калорий, фастфуд, Вкусно и точка, Rostic’s, калории, белки, жиры, углеводы, дневная норма',
+    },
+    // Open Graph
+    {
+      property: 'og:title',
+      content: 'Калькулятор КБЖУ — подсчёт калорий блюд фастфуда',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Соберите блюда из сетей фастфуда «Вкусно и точка» и Rostic’s, изменяйте количество порций и следите за КБЖУ относительно дневной нормы. Предупреждение при превышении калорий или нутриентов.',
+    },
+    { property: 'og:type', content: 'website' },
+    {
+      property: 'og:url',
+      content: 'https://fastfood-calculator.vercel.app/calculator',
+    }
+  ],
+});
+
 const dishesStore = useDishesStore();
 const calculator = useCalculatorStore();
 const nutritionNorm = useNutritionNormStore();
@@ -43,10 +75,10 @@ const currentNutrition = computed(() => {
     </div>
     </section>
   <template v-else>
-    <div class="flex flex-col gap-12">
-      <div class="flex justify-between">
+    <div class="flex flex-col gap-8 pb-16">
+      <div class="flex flex-col gap-4 sm:flex-row justify-between">
         <h2 class="text-2xl font-bold">Калькулятор</h2>
-        <NuxtLink class="flex items-center gap-1" to="/menu">
+        <NuxtLink class="flex items-center sm:gap-1" to="/menu">
           <svg
             class="size-6 text-orange-400 p-0.5"
             viewBox="0 0 24 24"

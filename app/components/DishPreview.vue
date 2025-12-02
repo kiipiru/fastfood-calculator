@@ -28,12 +28,8 @@ const emit = defineEmits(["dish-selected", "dish-favorited"]);
       <button
         class="group size-12 absolute right-8 top-4 rounded-full p-2 hover:bg-red-400 transition duration-300"
         :class="favoriteClasses.button"
-        @click="
-          (e) => {
-            e.stopPropagation();
-            emit('dish-favorited');
-          }
-        "
+        @click="emit('dish-favorited')"
+        @click.stop
       >
         <img
           class="group-hover:invert"
@@ -66,7 +62,7 @@ const emit = defineEmits(["dish-selected", "dish-favorited"]);
         </div>
         <div class="flex gap-4 pb-8">
           <div
-            class="flex flex-col bg-gray-100 w-full py-2 rounded-xl items-center"
+            class="flex flex-col bg-gray-100 w-full p-2 rounded-xl items-center"
           >
             <span>Белки</span>
             <span>{{ dish.nutrition.proteins }}г</span>
