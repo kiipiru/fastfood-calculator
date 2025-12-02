@@ -58,10 +58,10 @@ const emit = defineEmits(["gender-chosen"]);
     />
     <div class="flex self-center">
       <button @click="emit('gender-chosen', 'male')">
-        <img class="size-24" :src="maleIcon" />
+        <img alt="Мужчина" class="size-24" :src="maleIcon" />
       </button>
       <button @click="emit('gender-chosen', 'female')">
-        <img class="size-24" :src="femaleIcon" />
+        <img alt="Женщина" class="size-24" :src="femaleIcon" />
       </button>
     </div>
     <div

@@ -4,7 +4,9 @@ const calculatorStore = useCalculatorStore();
 </script>
 
 <template>
-  <footer class="fixed md:hidden bottom-0 left-0 w-full bg-white border-t shadow-sm">
+  <footer
+    class="fixed md:hidden bottom-0 left-0 w-full bg-white border-t shadow-sm"
+  >
     <nav class="flex justify-around bg-white w-full pt-1.5">
       <div class="flex flex-col items-center">
         <NavigationButton

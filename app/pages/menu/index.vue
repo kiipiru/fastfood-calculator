@@ -12,7 +12,6 @@ definePageMeta({
       content:
         'каталог блюд, фастфуд, Вкусно и точка, Rostic’s, калории, КБЖУ, еда, меню',
     },
-    // Open Graph
     {
       property: 'og:title',
       content: 'Каталог блюд — фастфуд «Вкусно и точка» и Rostic’s',

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-useHead({
-  meta: [{ name: "robots", content: "noindex, nofollow" }],
-});
 const searchQuery = ref<string>("");
 
 const {data: dishes} = await 

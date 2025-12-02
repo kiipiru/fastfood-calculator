@@ -7,7 +7,7 @@ interface NavButtonProps {
 const props = defineProps<NavButtonProps>();
 const emit = defineEmits(["navigation-button-clicked"]);
 const spanBgClass = computed(() => {
-  if (!props.type) return ''
+  if (!props.type) return "";
   const classObj: Record<NonNullable<NavButtonProps["type"]>, string> = {
     Избранное: "bg-red-500",
     Калькулятор: "bg-orange-500",

@@ -1,31 +1,30 @@
 <script setup lang="ts">
 definePageMeta({
-  title: 'Избранные блюда — фастфуд «Вкусно и точка» и Rostic’s',
+  title: "Избранные блюда — фастфуд «Вкусно и точка» и Rostic’s",
   meta: [
     {
-      name: 'description',
+      name: "description",
       content:
-        'Список избранных блюд из сетей фастфуда «Вкусно и точка» и Rostic’s. Быстрый доступ к сохранённым позициям с КБЖУ и описанием.',
+        "Список избранных блюд из сетей фастфуда «Вкусно и точка» и Rostic’s. Быстрый доступ к сохранённым позициям с КБЖУ и описанием.",
     },
     {
-      name: 'keywords',
+      name: "keywords",
       content:
-        'избранные блюда, избранное, фастфуд, Вкусно и точка, Rostic’s, сохранённые блюда, КБЖУ',
-    },
-    // Open Graph
-    {
-      property: 'og:title',
-      content: 'Избранные блюда — фастфуд «Вкусно и точка» и Rostic’s',
+        "избранные блюда, избранное, фастфуд, Вкусно и точка, Rostic’s, сохранённые блюда, КБЖУ",
     },
     {
-      property: 'og:description',
+      property: "og:title",
+      content: "Избранные блюда — фастфуд «Вкусно и точка» и Rostic’s",
+    },
+    {
+      property: "og:description",
       content:
-        'Просматривайте и управляйте избранными блюдами из сетей фастфуда «Вкусно и точка» и Rostic’s. Карточки с калориями, белками, жирами и углеводами.',
+        "Просматривайте и управляйте избранными блюдами из сетей фастфуда «Вкусно и точка» и Rostic’s. Карточки с калориями, белками, жирами и углеводами.",
     },
-    { property: 'og:type', content: 'website' },
+    { property: "og:type", content: "website" },
     {
-      property: 'og:url',
-      content: 'https://fastfood-calculator.vercel.app/favorites',
+      property: "og:url",
+      content: "https://fastfood-calculator.vercel.app/favorites",
     },
   ],
 });

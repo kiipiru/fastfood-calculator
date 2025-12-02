@@ -12,7 +12,7 @@ const showInput = computed(() => {
 <template>
   <header class="bg-white flex py-4 px-10 gap-2 justify-between shadow-md w-full">
     <NuxtLink to="/menu" class="flex shrink-0 gap-2">
-      <img src="/logo.svg" class="h-12 rounded-full bg-orange-400 p-1" alt="Logo" />
+      <img src="/logo.svg" class="h-12 rounded-full bg-orange-400 p-1" alt="Логотип сайта" />
       <div class="hidden md:flex flex-col items-center">
         <h1 class=" text-orange-600 font-semibold">
           Калькулятор Калорий
