@@ -4,6 +4,7 @@ const emit = defineEmits(['input-changed'])
 const route = useRoute()
 const favoritesStore = useFavoritesStore()
 const calculatorStore = useCalculatorStore()
+const comparedStore = useComparedStore()
 const showInput = computed(() => {
   return ['/menu', '/favorites'].includes(route.path)
 })
@@ -29,6 +30,8 @@ const showInput = computed(() => {
         @navigation-button-clicked="navigateTo('/favorites')" icon="/heart.svg" aria-label="Избранное" />
       <NavigationButton type="Калькулятор" :amount="calculatorStore.dishes.size"
         @navigation-button-clicked="navigateTo('/calculator')" icon="/cart.svg" aria-label="Калькулятор"/>
+      <NavigationButton type="Сравнение" :amount="comparedStore.dishes.size"
+        @navigation-button-clicked="navigateTo('/compare')" icon="/scale.svg" aria-label="Сравнение"/>
     </nav>
   </header>
 </template>

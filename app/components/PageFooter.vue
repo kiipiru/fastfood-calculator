@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const favoritesStore = useFavoritesStore();
 const calculatorStore = useCalculatorStore();
+const comparedStore = useComparedStore();
 </script>
 
 <template>
@@ -36,6 +37,16 @@ const calculatorStore = useCalculatorStore();
           aria-label="Калькулятор"
         />
         <span>Калькулятор</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <NavigationButton
+          type="Сравнение"
+          :amount="comparedStore.dishes.size"
+          @navigation-button-clicked="navigateTo('/compare')"
+          icon="/scale.svg"
+          aria-label="Сравнение"
+        />
+        <span>Сравнение</span>
       </div>
     </nav>
   </footer>

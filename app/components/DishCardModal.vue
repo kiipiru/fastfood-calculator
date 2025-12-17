@@ -2,7 +2,7 @@
 import type { Dish } from "~~/types/types";
 
 const props = defineProps<{ dish: Dish | undefined }>();
-const emit = defineEmits(["modal-closed", "dish-added", "dish-favorited"]);
+const emit = defineEmits(["modal-closed", "dish-added", "dish-favorited", "dish-compared"]);
 </script>
 
 <template>
@@ -15,6 +15,7 @@ const emit = defineEmits(["modal-closed", "dish-added", "dish-favorited"]);
       @card-closed="emit('modal-closed')"
       @dish-added="(id) => emit('dish-added', id)"
       @dish-favorited="(id) => emit('dish-favorited', id)"
+      @dish-compared="(id) => emit('dish-compared', id)"
     />
   </div>
 </template>

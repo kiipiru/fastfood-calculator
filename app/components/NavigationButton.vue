@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface NavButtonProps {
   icon: string;
-  type?: "Избранное" | "Калькулятор";
+  type?: "Избранное" | "Калькулятор" | "Сравнение";
   amount: number;
 }
 const props = defineProps<NavButtonProps>();
@@ -11,6 +11,7 @@ const spanBgClass = computed(() => {
   const classObj: Record<NonNullable<NavButtonProps["type"]>, string> = {
     Избранное: "bg-red-500",
     Калькулятор: "bg-orange-500",
+    Сравнение: "bg-blue-500",
   };
   return classObj[props.type];
 });

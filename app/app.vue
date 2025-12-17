@@ -14,6 +14,7 @@ if (dishes.value) {
 onBeforeMount(() => {
   useCalculatorStore().initFromStorage();
   useFavoritesStore().initFromStorage();
+  useComparedStore().initFromStorage();
 });
 </script>
 

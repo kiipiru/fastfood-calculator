@@ -2,7 +2,7 @@
 import type { Dish } from "~~/types/types";
 import Button from "./Button.vue";
 const props = defineProps<{ dish?: Dish }>();
-const emit = defineEmits(["card-closed", "dish-added", "dish-favorited"]);
+const emit = defineEmits(["card-closed", "dish-added", "dish-favorited", "dish-compared"]);
 const nutritionNorm = useNutritionNormStore().nutritionNorm;
 const nutritionItems = [
   {
@@ -41,7 +41,7 @@ const nutritionItems = [
     <div class="relative max-w-100 flex flex-col">
       <button
         class="z-10 absolute right-4 top-4 bg-white rounded-full p-1"
-        @click="(e: MouseEvent) =>emit('card-closed', e)"
+        @click="() => emit('card-closed')"
       >
         <svg
           class="w-6 h-6"
@@ -95,9 +95,15 @@ const nutritionItems = [
       ></Button>
       <Button
         color="red"
-        class="w-full md:w-1/2"
+        class="w-full md:w-1/4"
         text="В избранное"
         @click="emit('dish-favorited', dish.id)"
+      ></Button>
+      <Button
+        color="gray"
+        class="w-full md:w-1/4"
+        text="Сравнить"
+        @click="emit('dish-compared', dish.id)"
       ></Button>
     </div>
   </div>

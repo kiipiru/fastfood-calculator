@@ -15,6 +15,7 @@ const isModalOpen = ref<boolean>(false);
 const dishesStore = useDishesStore();
 const calculatorStore = useCalculatorStore();
 const favoriteStore = useFavoritesStore();
+const comparedStore = useComparedStore();
 const restaurantFilters = [
   {
     value: "All",
@@ -97,7 +98,7 @@ watch(isModalOpen, () => {
         :key="item.value"
         :icon="item.icon"
         :title="item.title"
-        :is-active="selectedRestaurant === item.title"
+        :is-active="selectedRestaurant === item.value"
         @filter-selected="selectedRestaurant = item.value"
       />
     </div>
@@ -143,6 +144,12 @@ watch(isModalOpen, () => {
       @dish-favorited="
         (id) => {
           favoriteStore.toggleFavorite(id);
+          handleModalClosed();
+        }
+      "
+      @dish-compared="
+        (id: string) => {
+          comparedStore.toggleCompared(id);
           handleModalClosed();
         }
       "
