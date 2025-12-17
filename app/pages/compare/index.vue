@@ -44,7 +44,7 @@ const gridCols = computed(() => {
       </NuxtLink>
     </div>
     <template v-if="dishes.length > 0">
-      <div class="flex flex-col md:flex-row md:justify-between gap-4 md:overflow-x-auto ">
+      <div class="flex flex-col md:flex-row gap-4 md:overflow-x-auto justify-start">
         <CompareCard
           v-for="dish in dishes"
           :key="dish.id"

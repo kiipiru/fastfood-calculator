@@ -169,5 +169,80 @@ export const dishes: Dish[] = [
       carbohydrates: 34 // 26.2 * 1.30
     },
     image: "https://s82079.cdn.ngenix.net/330x0/5nt7lertszxw15rwcbydficjgf9n.png"
-  }
+  },
+  {
+    title: "АйШеф-ролл",
+    restaurant: "Rostic's",
+    id: "rostics-006",
+    description:
+      "Свежие овощи и соус в сочетании с нежными байтсами в аппетитной пшеничной лепёшке. Удобный формат для перекуса на ходу.",
+    weight: 98,
+    nutrition: {
+      calories: 228,      // 233 * 0.98
+      proteins: 9.8,      // 10 * 0.98
+      fats: 9.2,          // 9.4 * 0.98
+      carbohydrates: 26.6 // 27.1 * 0.98
+    },
+    image: "https://s82079.cdn.ngenix.net/330x0/7brb1i59jk2e004vbc983ryeggil.png"
+  },
+  {
+    title: "Мега ролл острый",
+    restaurant: "Rostic's",
+    id: "rostics-007",
+    description:
+      "Большой острый ролл: тройная порция острых куриных стрипсов, свежие овощи, картофель фри, смесь коул-слоу и соусы (кетчуп + майонез) в поджаренной лепёшке.",
+    weight: 304,
+    nutrition: {
+      calories: 638.4,    // 210 * 3.04
+      proteins: 33.4,     // 11 * 3.04
+      fats: 28.3,         // 9.3 * 3.04
+      carbohydrates: 62.6 // 20.6 * 3.04
+    },
+    image: "https://s82079.cdn.ngenix.net/330x0/1p0hpspzxqbafh41308br10hpz05.png"
+  },
+  {
+    title: "Шефбургер Джуниор острый",
+    restaurant: "Rostic's",
+    id: "rostics-008",
+    description:
+      "Два сочных стрипса в острой панировке, листья салата, маринованные огурчики, лук, фирменный соус «Бургер» и булочка с черно-белым кунжутом.",
+    weight: 161,
+    nutrition: {
+      calories: 380,      // 236 * 1.61
+      proteins: 22.1,     // 13.7 * 1.61
+      fats: 16.3,         // 10.1 * 1.61
+      carbohydrates: 36.2 // 22.5 * 1.61
+    },
+    image: "https://s82079.cdn.ngenix.net/330x0/0cfuu026nglhmtfen7y21zzj97q9.png"
+  },
+  {
+    title: "Ростмастер Чиз",
+    restaurant: "Rostic's",
+    id: "rostics-009",
+    description:
+      "Хрустящая лепёшка, куриное филе в оригинальной панировке, свежие овощи и гвоздь программы — сырная котлета в сочетании с соусом Пармеджано.",
+    weight: 324,
+    nutrition: {
+      calories: 897.5,    // 277 * 3.24
+      proteins: 45,       // 13.9 * 3.24
+      fats: 48,           // 14.8 * 3.24
+      carbohydrates: 71.6 // 22.1 * 3.24
+    },
+    image: "https://s82079.cdn.ngenix.net/330x0/osekurzhpfbfmulbmtxufk5c0iwe.png"
+  },
+  {
+    title: "Шеф-ролл Де Люкс острый",
+    restaurant: "Rostic's",
+    id: "rostics-010",
+    description:
+      "Куриное филе в хрустящей острой панировке с ломтиком бекона, репчатым луком, сыром и сочными овощами в пшеничной лепёшке, поджаренной в тостере.",
+    weight: 180,
+    nutrition: {
+      calories: 437.4,    // 243 * 1.80
+      proteins: 23.6,     // 13.1 * 1.80
+      fats: 19.3,         // 10.7 * 1.80
+      carbohydrates: 42.5 // 23.6 * 1.80
+    },
+    image: 'https://s82079.cdn.ngenix.net/330x0/fsy7dpro7zpakmws02hemoduj1on.png'
+  },
 ];

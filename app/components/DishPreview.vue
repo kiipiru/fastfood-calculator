@@ -65,19 +65,19 @@ const emit = defineEmits(["dish-selected", "dish-favorited"]);
             class="flex flex-col bg-gray-100 w-full p-2 rounded-xl items-center"
           >
             <span>Белки</span>
-            <span>{{ dish.nutrition.proteins }}г</span>
+            <span>{{ dish.nutrition.proteins }} г</span>
           </div>
           <div
             class="flex flex-col bg-gray-100 w-full py-2 rounded-xl items-center"
           >
             <span>Жиры</span>
-            <span>{{ dish.nutrition.fats }}г</span>
+            <span>{{ dish.nutrition.fats }} г</span>
           </div>
           <div
             class="flex flex-col bg-gray-100 w-full py-2 rounded-xl items-center"
           >
             <span>Углеводы</span>
-            <span>{{ dish.nutrition.carbohydrates }}г</span>
+            <span>{{ dish.nutrition.carbohydrates }} г</span>
           </div>
         </div>
       </div>

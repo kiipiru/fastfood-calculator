@@ -6,7 +6,7 @@ const emit = defineEmits(["dish-removed"]);
 
 <template>
   <div
-    class="flex flex-col gap-4 rounded-2xl bg-white min-w-[280px] w-full max-h-96 mx-auto my-2 px-4 pb-4 shadow-md"
+    class="flex flex-col gap-4 rounded-2xl bg-white w-1/4 min-w-[280px] w-full max-h-96 my-2 px-4 pb-4 shadow-md"
   >
     <div class="flex flex-col relative">
       <img
